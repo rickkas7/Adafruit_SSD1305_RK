@@ -24,6 +24,9 @@ All text above, and the splash screen below must be included in any redistributi
 SYSTEM_THREAD(ENABLED);
 SerialLogHandler logHandler(LOG_LEVEL_INFO);
 
+// If rotation is 2 then the display is correct when then USB connector is facing you
+// The natural rotation of 0 is rotated 180 from that
+#define DEFAULT_ROTATION 2 
 #define OLED_CS A6 
 #define OLED_DC D25
 
@@ -99,6 +102,7 @@ void setup()   {
 
 
 void loop() {
+  display.setRotation(DEFAULT_ROTATION);
 
   // init done
   display.display(); // show splashscreen
@@ -180,7 +184,7 @@ void loop() {
     delay(1000);
   }
 
-  display.setRotation(0);
+  display.setRotation(DEFAULT_ROTATION);
   
   // miniature bitmap display
   display.clearDisplay();
