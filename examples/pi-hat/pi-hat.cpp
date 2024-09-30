@@ -29,23 +29,15 @@ SerialLogHandler logHandler(LOG_LEVEL_INFO);
 #define DEFAULT_ROTATION 2 
 #define OLED_CS A6 
 #define OLED_DC D25
+#define OLED_RESET D22 // Can set to PIN_INVALID
 
-// Used for I2C or SPI
-#define OLED_RESET PIN_INVALID
-
-// software SPI
-//Adafruit_SSD1305 display(128, 64, OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
 // hardware SPI - use 7Mhz (7000000UL) or lower because the screen is rated for 4MHz, or it will remain blank!
 Adafruit_SSD1305 display(128, 32, &SPI, OLED_DC, OLED_RESET, OLED_CS, 7000000UL);
-
-// I2C
-//Adafruit_SSD1305 display(128, 64, &Wire, OLED_RESET);
 
 #define NUMFLAKES 10
 #define XPOS 0
 #define YPOS 1
 #define DELTAY 2
-
 
 #define LOGO16_GLCD_HEIGHT 16 
 #define LOGO16_GLCD_WIDTH  16 
